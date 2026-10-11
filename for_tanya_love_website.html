@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1d1026">
+<title>For Tanya ♡</title>
+<style>
+:root{--bg:#160d20;--pink:#ff8fb1;--cream:#fff3f6;--muted:#d8c3d2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--cream);font-family:Georgia,'Times New Roman',serif;background:radial-gradient(ellipse at 50% 0%,#51233f 0%,#24132f 42%,var(--bg) 78%);overflow-x:hidden}
+main{position:relative;z-index:1;width:min(760px,92%);margin:auto;padding:30px 0 56px}
+.topline{text-align:center;text-transform:uppercase;letter-spacing:.25em;font:11px/1.6 Arial,sans-serif;color:#f3b6ca}
+.hero{min-height:78vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 8px}
+.heart{font-size:42px;color:var(--pink);filter:drop-shadow(0 0 18px #ff6d9b);animation:pulse 1.8s infinite}
+h1{font-size:clamp(44px,10vw,78px);line-height:1;margin:20px 0 12px;font-weight:normal;letter-spacing:-.04em}
+h1 span{color:var(--pink);font-style:italic}
+.subtitle{font:14px/1.8 Arial,sans-serif;color:var(--muted);max-width:420px}
+button{border:1px solid #ff9dbb;background:linear-gradient(135deg,#ff8fb1,#d85d91);color:#291122;border-radius:999px;padding:14px 24px;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 8px 30px #e85b8a30;margin-top:24px}
+button:hover{transform:translateY(-2px)}
+.card{background:#ffffff0b;border:1px solid #ffffff20;border-radius:24px;padding:clamp(22px,5vw,42px);margin:18px 0;backdrop-filter:blur(8px);box-shadow:0 20px 55px #00000018}
+.card h2{font-size:28px;font-weight:normal;color:var(--pink);margin:0 0 18px}
+.card p{font-size:17px;line-height:1.9;color:#f7eaf0;margin:0 0 14px}
+.quote{text-align:center;font-style:italic;font-size:22px!important;color:#ffc1d4!important}
+.note{font:12px/1.8 Arial,sans-serif;color:#cdb9ca;text-align:center}
+footer{text-align:center;padding:35px 0 10px;color:#d8bdcf;font-size:14px}
+.floating{position:fixed;top:-30px;left:var(--x);font-size:var(--s);opacity:0;pointer-events:none;animation:fall var(--d) linear infinite;animation-delay:var(--delay);color:#ff91b6}
+.hidden{display:none}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg);opacity:0}10%{opacity:.8}90%{opacity:.5}100%{transform:translateY(115vh) rotate(300deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="hearts" aria-hidden="true"></div>
+<main>
+  <section class="hero">
+    <div class="topline">A little page made with care</div>
+    <div class="heart">♡</div>
+    <h1>For you, <span>Tanya</span></h1>
+    <p class="subtitle">Some feelings are hard to put into words, so I made a small place for them.</p>
+    <button id="openBtn" type="button">Open your little note ♡</button>
+  </section>
+
+  <section id="letter" class="card hidden">
+    <h2>Dear Tannu,</h2>
+    <p>I wanted to make something gentle for you—not to ask anything from you, and not to put pressure on your heart.</p>
+    <p>You have been an important part of my life, and the memories we shared will always mean something to me. I know that feelings can get hurt, and that love alone cannot fix everything. I’m sorry for the ways I hurt you.</p>
+    <p>I’m learning that caring about someone also means respecting their space, their choices, and their peace. You don’t owe me a reply to this page.</p>
+    <p class="quote">“I hope life feels a little lighter for you, one day at a time.”</p>
+    <p>Whatever the future holds, I sincerely wish you and your family happiness, good health, and peace.</p>
+    <p>Take care of yourself, Tanya. ♡</p>
+    <p style="text-align:right;color:#ffb7cd;font-style:italic;margin-top:24px">— Mayank</p>
+  </section>
+
+  <section class="card">
+    <h2>A small reminder</h2>
+    <p style="margin-bottom:0">Real love should leave room for honesty, healing, and choice. No pressure. No expectations. Just a sincere wish for your happiness.</p>
+  </section>
+  <p class="note">Made with care ♡ · A personal page, not a request for a reply</p>
+  <footer>For Tanya, with warmth <span style="color:#ff8fb1">♥</span></footer>
+</main>
+<script>
+const container=document.getElementById('hearts');
+for(let i=0;i<18;i++){
+  const el=document.createElement('span');
+  el.className='floating'; el.textContent=['♡','♥','✧'][i%3];
+  el.style.setProperty('--x',(Math.random()*100)+'vw');
+  el.style.setProperty('--s',(12+Math.random()*18)+'px');
+  el.style.setProperty('--d',(9+Math.random()*12)+'s');
+  el.style.setProperty('--delay',(-Math.random()*18)+'s');
+  container.appendChild(el);
+}
+document.getElementById('openBtn').addEventListener('click',()=>{
+  const letter=document.getElementById('letter');
+  letter.classList.remove('hidden');
+  letter.scrollIntoView({behavior:'smooth',block:'start'});
+  document.getElementById('openBtn').textContent='A little note, just for you ♡';
+});
+</script>
+</body>
+</html>
